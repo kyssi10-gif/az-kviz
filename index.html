@@ -362,12 +362,13 @@
     </div>
     <div class="panel">
       <h3 style="font-size:18px;margin-bottom:6px">Záloha sad (export / import)</h3>
-      <p class="hint">Prohlížeč si otázky po zavření nepamatuje. Zkopíruj si JSON stranou, nebo ho sem vlož a načti.</p>
+      <p class="hint">Otázky se teď automaticky ukládají v tomto prohlížeči, takže zůstanou i po zavření. Pro hromadné přidání vlož JSON (pole objektů) a dej <b>Přidat k otázkám</b>. Kategorie vzniká sama podle pole <code class="k">cat</code>. Export si i tak občas ulož stranou jako zálohu.</p>
       <textarea id="ioBox" spellcheck="false" placeholder="Sem se vypíše / vlož JSON…"></textarea>
       <div class="row" style="margin-top:10px">
         <button class="btn" id="exportBtn" type="button">Vypsat JSON</button>
         <button class="btn" id="copyBtn" type="button">Kopírovat</button>
-        <button class="btn" id="importBtn" type="button">Načíst z pole</button>
+        <button class="btn primary" id="appendBtn" type="button">Přidat k otázkám</button>
+        <button class="btn" id="importBtn" type="button">Nahradit vše</button>
         <button class="btn danger" id="resetBtn" type="button">Vrátit ukázkové sady</button>
       </div>
     </div>
@@ -604,14 +605,18 @@ function saveQ(){
   if(editingId){Object.assign(questions.find(x=>x.id===editingId),{cat,q,a,d});}else{questions.push({id:qSeq++,cat,q,a,d});}
   cancelEdit();afterQChange();
 }
-function afterQChange(){refreshCatOptions();renderQList();const cats=new Set(allCats());enabledCats=new Set([...enabledCats].filter(c=>cats.has(c)));}
+function afterQChange(){refreshCatOptions();renderQList();const cats=new Set(allCats());enabledCats=new Set([...enabledCats].filter(c=>cats.has(c)));saveQuestions();}
+const LS_KEY='azkviz_questions';
+function saveQuestions(){try{localStorage.setItem(LS_KEY,JSON.stringify(questions.map(({cat,q,a,d})=>({cat,q,a,d}))));}catch(e){}}
+function loadSavedQuestions(){try{const raw=localStorage.getItem(LS_KEY);if(!raw)return false;const arr=JSON.parse(raw);if(!Array.isArray(arr)||!arr.length)return false;const clean=arr.filter(o=>o&&o.cat&&o.q&&o.a&&Array.isArray(o.d)&&o.d.length>=2).map(o=>({id:qSeq++,cat:String(o.cat),q:String(o.q),a:String(o.a),d:o.d.slice(0,2).map(String)}));if(!clean.length)return false;questions=clean;return true;}catch(e){return false;}}
 function exportJSON(){$('#ioBox').value=JSON.stringify(questions.map(({cat,q,a,d})=>({cat,q,a,d})),null,2);}
-function importJSON(){
+function importJSON(append){
   try{
     const arr=JSON.parse($('#ioBox').value);if(!Array.isArray(arr))throw 0;
     const clean=arr.filter(o=>o&&o.cat&&o.q&&o.a&&Array.isArray(o.d)&&o.d.length>=2).map(o=>({id:qSeq++,cat:String(o.cat),q:String(o.q),a:String(o.a),d:o.d.slice(0,2).map(String)}));
-    if(!clean.length){alert('Žádné platné otázky.');return;}
-    questions=clean;enabledCats=new Set();afterQChange();alert('Načteno '+clean.length+' otázek.');
+    if(!clean.length){alert('Žádné platné otázky. Zkontroluj formát JSON.');return;}
+    if(append){questions=questions.concat(clean);clean.forEach(o=>enabledCats.add(o.cat));afterQChange();alert('Přidáno '+clean.length+' otázek.');}
+    else{questions=clean;enabledCats=new Set();afterQChange();alert('Nahrazeno — '+clean.length+' otázek.');}
   }catch(e){alert('Nepodařilo se přečíst JSON.');}
 }
 
@@ -997,8 +1002,9 @@ $('#closeEditor').onclick=()=>{renderCatChips(MODE==='online'?'#oCatChips':'#cat
 $('#saveQ').onclick=saveQ;$('#cancelEdit').onclick=cancelEdit;$('#filterCat').onchange=renderQList;
 $('#exportBtn').onclick=exportJSON;
 $('#copyBtn').onclick=async()=>{exportJSON();try{await navigator.clipboard.writeText($('#ioBox').value);$('#copyBtn').textContent='Zkopírováno ✓';setTimeout(()=>$('#copyBtn').textContent='Kopírovat',1200);}catch(e){$('#ioBox').select();}};
-$('#importBtn').onclick=importJSON;
-$('#resetBtn').onclick=()=>{if(confirm('Nahradit všechny otázky ukázkovými sadami?')){loadSeed();enabledCats=new Set();afterQChange();}};
+$('#importBtn').onclick=()=>importJSON(false);
+$('#appendBtn').onclick=()=>importJSON(true);
+$('#resetBtn').onclick=()=>{if(confirm('Nahradit všechny otázky ukázkovými sadami? Smaže i uložené vlastní otázky v tomto prohlížeči.')){try{localStorage.removeItem(LS_KEY);}catch(e){}loadSeed();enabledCats=new Set();afterQChange();}};
 
 $('#gLeave').onclick=()=>{if(MODE==='online'){$('#winBackdrop').classList.add('hidden');leaveRoom();}else{$('#winBackdrop').classList.add('hidden');show('setup');renderCatChips('#catChips');}};
 $('#winAgain').onclick=()=>{if(MODE==='online'){onlinePlayAgain();}else{$('#winBackdrop').classList.add('hidden');startGame();}};
@@ -1014,7 +1020,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#rulesBackdrop').
 /* ============================================================
    Init
 ============================================================ */
-loadSeed();renderLogo();
+loadSeed();loadSavedQuestions();renderLogo();
 $$('.seg [data-np]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.np===numPlayers));
 renderPlayers();renderCatChips('#catChips');refreshCatOptions();
 // deep link → rovnou online join
