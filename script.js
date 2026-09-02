@@ -201,7 +201,7 @@ let numPlayers=3;
 function renderLogo(){
   const g=$('#logoHexes'),s=8;const cols=['var(--p1)','var(--p3)','var(--gold)','var(--fresh)','var(--p2)','var(--fresh)','var(--fresh)','var(--gold)','var(--fresh)','var(--fresh)'];
   let html='',k=0,ox=50,oy=14;
-  for(let r=0;r<4;r++)for(let i=0;i<=r;i++){const cx=ox+(i-r/2)*(Math.sqrt(3)*s),cy=oy+r*1.5*s;html+=`<polygon points="${hexPts(cx,cy,s)}" fill="${cols[k%cols.length]}" stroke="#0c0f18" stroke-width="1.4"/>`;k++;}
+  for(let r=0;r<4;r++)for(let i=0;i<=r;i++){const cx=ox+(i-r/2)*(Math.sqrt(3)*s),cy=oy+r*1.5*s;const pts=hexPts(cx,cy,s);html+=`<polygon points="${pts}" fill="${cols[k%cols.length]}" stroke="#0c0f18" stroke-width="1.4"/><polygon points="${pts}" fill="url(#cellSheen)"/>`;k++;}
   g.innerHTML=html;
 }
 function renderPlayers(){
@@ -311,7 +311,7 @@ function cellColorL(c){if(c.state==='fresh')return 'var(--fresh)';if(c.state==='
 function isAvailL(c){return c.state==='fresh'||c.state==='black';}
 function renderBoard(){
   const {x,y,w,h}=G.vb;let svg=`<svg class="board" viewBox="${x} ${y} ${w} ${h}" role="grid" aria-label="Hrací pole">`;
-  for(const k in G.cells){const c=G.cells[k];const cx=(c.i-c.r/2)*W,cy=c.r*ROWH;const cls='hex'+(isAvailL(c)&&!G.over?' avail':'')+(c._sel?' sel':'')+(c._win?' win':'');const col=cellColorL(c);svg+=`<polygon class="${cls}" points="${hexPts(cx,cy,S)}" fill="${col}" style="color:${col}" data-k="${k}" tabindex="${isAvailL(c)&&!G.over?0:-1}" role="gridcell"></polygon>`;}
+  for(const k in G.cells){const c=G.cells[k];const cx=(c.i-c.r/2)*W,cy=c.r*ROWH;const cls='hex'+(isAvailL(c)&&!G.over?' avail':'')+(c._sel?' sel':'')+(c._win?' win':'');const col=cellColorL(c);const pts=hexPts(cx,cy,S);svg+=`<polygon class="${cls}" points="${pts}" fill="${col}" style="color:${col}" data-k="${k}" tabindex="${isAvailL(c)&&!G.over?0:-1}" role="gridcell"></polygon><polygon class="hexSheen" points="${pts}" tabindex="-1"></polygon>`;}
   svg+='</svg>';$('#boardHost').innerHTML=svg;
   $$('#boardHost .hex.avail').forEach(p=>{p.addEventListener('click',()=>onPick(p.dataset.k));p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onPick(p.dataset.k);}});});
 }
@@ -509,7 +509,8 @@ function renderOBoard(s){
     const avail=(v===-1||v===-2);const col=v===-1?'var(--fresh)':v===-2?'var(--black)':pcolor(v);
     const sel=s.q&&s.q.cell===key&&s.phase!=='idle';
     const cls='hex'+(avail&&myTurn?' avail':'')+(sel?' sel':'')+(winSet.has(key)?' win':'');
-    svg+=`<polygon class="${cls}" points="${hexPts(cx,cy,S)}" fill="${col}" style="color:${col}" data-k="${key}" tabindex="${avail&&myTurn?0:-1}"></polygon>`;
+    const pts=hexPts(cx,cy,S);
+    svg+=`<polygon class="${cls}" points="${pts}" fill="${col}" style="color:${col}" data-k="${key}" tabindex="${avail&&myTurn?0:-1}"></polygon><polygon class="hexSheen" points="${pts}" tabindex="-1"></polygon>`;
   }
   svg+='</svg>';$('#boardHost').innerHTML=svg;
   if(myTurn)$$('#boardHost .hex.avail').forEach(p=>{p.addEventListener('click',()=>onlinePick(p.dataset.k));p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onlinePick(p.dataset.k);}});});
