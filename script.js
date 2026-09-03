@@ -170,6 +170,90 @@ const SEED_QUESTIONS=[
   {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Nového Zélandu?',a:'Wellington',d:['Auckland','Christchurch']},
   {cat:'Zeměpis: státy světa',q:'Který stát je rozlohou nejmenší v Jižní Americe?',a:'Surinam',d:['Uruguay','Guyana']},
   {cat:'Zeměpis: státy světa',q:'Který průplav v Panamě spojuje Atlantský a Tichý oceán?',a:'Panamský průplav',d:['Suezský průplav','Kielský průplav']},
+
+  // Historie (těžší)
+  {cat:'Historie (těžší)',q:'Ve kterém roce vypukla třicetiletá válka?',a:'1618',d:['1648','1588']},
+  {cat:'Historie (těžší)',q:'Kdo byl posledním českým a uherským králem z rodu Lucemburků?',a:'Zikmund Lucemburský',d:['Karel IV.','Václav IV.']},
+  {cat:'Historie (těžší)',q:'Který mír formálně ukončil třicetiletou válku v roce 1648?',a:'Vestfálský mír',d:['Vídeňský kongres','Utrechtský mír']},
+  {cat:'Historie (těžší)',q:'V kterém roce padla Konstantinopol a zanikla Byzantská říše?',a:'1453',d:['1204','1517']},
+  {cat:'Historie (těžší)',q:'Kdo vedl bolševickou revoluci v Rusku v roce 1917?',a:'Vladimir Lenin',d:['Josif Stalin','Lev Trockij']},
+  {cat:'Historie (těžší)',q:'Která mírová smlouva formálně ukončila první světovou válku s Německem?',a:'Versailleská smlouva',d:['Brestlitevský mír','Trianonská smlouva']},
+  {cat:'Historie (těžší)',q:'Ve kterém roce vypukla Velká francouzská revoluce?',a:'1789',d:['1799','1776']},
+  {cat:'Historie (těžší)',q:'Kdo byl posledním císařem Západořímské říše?',a:'Romulus Augustulus',d:['Konstantin Veliký','Justinián I.']},
+  {cat:'Historie (těžší)',q:'Který anglosaský král je považován za prvního krále sjednocené Anglie (10. století)?',a:'Athelstan',d:['Vilém Dobyvatel','Alfréd Veliký']},
+  {cat:'Historie (těžší)',q:'Ve kterém roce byla podepsána Mnichovská dohoda bez účasti Československa?',a:'1938',d:['1939','1937']},
+  {cat:'Historie (těžší)',q:'Jak se jmenovala první žena, která samostatně vládla starověkému Egyptu jako faraon?',a:'Hatšepsut',d:['Kleopatra','Nefertiti']},
+  {cat:'Historie (těžší)',q:'Který starověký jihoamerický národ postavil Machu Picchu?',a:'Inkové',d:['Aztékové','Mayové']},
+
+  // Věda a vesmír (těžší)
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá nejbližší velká galaxie k naší Mléčné dráze?',a:'Galaxie v Andromedě',d:['Trojúhelníková galaxie','Velké Magellanovo mračno']},
+  {cat:'Věda a vesmír (těžší)',q:'Který vědec formuloval obecnou teorii relativity?',a:'Albert Einstein',d:['Isaac Newton','Niels Bohr']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá základní jednotka dědičné informace v DNA?',a:'Gen',d:['Chromozom','Protein']},
+  {cat:'Věda a vesmír (těžší)',q:'Kolik chromozomů má běžná lidská tělní buňka?',a:'46',d:['44','48']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá proces, při kterém rostliny přeměňují světlo na chemickou energii?',a:'Fotosyntéza',d:['Respirace','Fermentace']},
+  {cat:'Věda a vesmír (těžší)',q:'Který chemický prvek má značku Fe?',a:'Železo',d:['Fluor','Fosfor']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá nejmenší částice prvku, která si zachovává jeho vlastnosti?',a:'Atom',d:['Molekula','Iont']},
+  {cat:'Věda a vesmír (těžší)',q:'Který vědec objevil zákony pohybu planet kolem Slunce?',a:'Johannes Kepler',d:['Galileo Galilei','Tycho Brahe']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá jev, kdy světlo mění směr při přechodu z jednoho prostředí do druhého?',a:'Lom světla',d:['Odraz světla','Difrakce']},
+  {cat:'Věda a vesmír (těžší)',q:'Kolik planet obíhá kolem Slunce od vyřazení Pluta z definice planety?',a:'8',d:['9','7']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá teorie popisující vznik vesmíru z jednoho extrémně horkého a hustého bodu?',a:'Teorie velkého třesku',d:['Teorie strun','Teorie multivesmíru']},
+  {cat:'Věda a vesmír (těžší)',q:'Který plyn tvoří většinu objemu zemské atmosféry?',a:'Dusík',d:['Kyslík','Oxid uhličitý']},
+
+  // Filmy a seriály (těžší)
+  {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval film „Pulp Fiction“?',a:'Quentin Tarantino',d:['Martin Scorsese','David Fincher']},
+  {cat:'Filmy a seriály (těžší)',q:'Který film získal Oscara za nejlepší film na obřadu v roce 1995?',a:'Forrest Gump',d:['Pulp Fiction','Skřítek']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo ztvárnil Jacka Sparrowa ve filmech Piráti z Karibiku?',a:'Johnny Depp',d:['Orlando Bloom','Geoffrey Rush']},
+  {cat:'Filmy a seriály (těžší)',q:'Který režisér natočil filmovou trilogii „Pán prstenů“?',a:'Peter Jackson',d:['James Cameron','Christopher Nolan']},
+  {cat:'Filmy a seriály (těžší)',q:'Které animační studio stojí za filmy Shrek a Kung Fu Panda?',a:'DreamWorks Animation',d:['Pixar','Disney']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo napsal knižní předlohu k seriálu „Hra o trůny“?',a:'George R. R. Martin',d:['J. R. R. Tolkien','Terry Pratchett']},
+  {cat:'Filmy a seriály (těžší)',q:'Který herec ztvárnil Tonyho Starka / Iron Mana ve filmech MCU?',a:'Robert Downey Jr.',d:['Chris Evans','Chris Hemsworth']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval filmy „Sedm“ a „Klub rváčů“?',a:'David Fincher',d:['Quentin Tarantino','Christopher Nolan']},
+  {cat:'Filmy a seriály (těžší)',q:'Ve kterém roce měl premiéru první díl Star Wars (epizoda IV)?',a:'1977',d:['1980','1983']},
+  {cat:'Filmy a seriály (těžší)',q:'Ve kterém seriálu učitel chemie z Albuquerque začne vařit drogy?',a:'Perníkový táta (Breaking Bad)',d:['Ozark','Narcos']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval film „Počátek“ (Inception)?',a:'Christopher Nolan',d:['Denis Villeneuve','Ridley Scott']},
+  {cat:'Filmy a seriály (těžší)',q:'Který animovaný film od Pixaru se odehrává v hlavě dívky jménem Riley?',a:'V hlavě (Inside Out)',d:['Coco','Ratatouille']},
+
+  // Literatura (těžší)
+  {cat:'Literatura (těžší)',q:'Kdo napsal román „Válka a mír“?',a:'Lev Nikolajevič Tolstoj',d:['Fjodor Dostojevskij','Anton Čechov']},
+  {cat:'Literatura (těžší)',q:'Který anglický dramatik napsal tragédii „Hamlet“?',a:'William Shakespeare',d:['Christopher Marlowe','Ben Jonson']},
+  {cat:'Literatura (těžší)',q:'Kdo je autorem románu „1984“?',a:'George Orwell',d:['Aldous Huxley','Ray Bradbury']},
+  {cat:'Literatura (těžší)',q:'Která česká spisovatelka napsala „Babičku“?',a:'Božena Němcová',d:['Karolína Světlá','Eliška Krásnohorská']},
+  {cat:'Literatura (těžší)',q:'Kdo napsal román „Zločin a trest“?',a:'Fjodor Dostojevskij',d:['Lev Tolstoj','Ivan Turgeněv']},
+  {cat:'Literatura (těžší)',q:'Kdo je autorkou knižní série o Harrym Potterovi?',a:'J. K. Rowlingová',d:['C. S. Lewis','J. R. R. Tolkien']},
+  {cat:'Literatura (těžší)',q:'Kdo napsal existencialistický román „Cizinec“?',a:'Albert Camus',d:['Jean-Paul Sartre','Franz Kafka']},
+  {cat:'Literatura (těžší)',q:'Který pražský německy píšící spisovatel je autorem „Proměny“?',a:'Franz Kafka',d:['Rainer Maria Rilke','Max Brod']},
+  {cat:'Literatura (těžší)',q:'Kdo je autorem starověkého eposu „Odysseia“?',a:'Homér',d:['Sofoklés','Vergilius']},
+  {cat:'Literatura (těžší)',q:'Který český básník napsal lyrickoepickou skladbu „Máj“?',a:'Karel Hynek Mácha',d:['Jan Neruda','Jaroslav Vrchlický']},
+  {cat:'Literatura (těžší)',q:'Kdo napsal román „Sto roků samoty“?',a:'Gabriel García Márquez',d:['Jorge Luis Borges','Mario Vargas Llosa']},
+  {cat:'Literatura (těžší)',q:'Která anglická autorka napsala „Pýchu a předsudek“?',a:'Jane Austenová',d:['Charlotte Brontëová','Virginia Woolfová']},
+
+  // Sport (těžší)
+  {cat:'Sport (těžší)',q:'Ve kterém městě se konaly první novodobé olympijské hry v roce 1896?',a:'Athény',d:['Paříž','Londýn']},
+  {cat:'Sport (těžší)',q:'Kolik hráčů má fotbalový tým na hřišti celkem, včetně brankáře?',a:'11',d:['10','12']},
+  {cat:'Sport (těžší)',q:'Kolik setů musí muž vyhrát pro finálové vítězství na Wimbledonu?',a:'3',d:['2','4']},
+  {cat:'Sport (těžší)',q:'Ve kterých dvou sportech se běžně používá pojem „hattrick“ pro tři góly jednoho hráče v zápase?',a:'Fotbal a hokej',d:['Basketbal a volejbal','Ragby a baseball']},
+  {cat:'Sport (těžší)',q:'Kolik bodů se v basketbalu počítá za koš proměněný zpoza tříbodové čáry?',a:'3',d:['2','1']},
+  {cat:'Sport (těžší)',q:'Který stát vyhrál mistrovství světa ve fotbale nejvícekrát (k roku 2022)?',a:'Brazílie',d:['Německo','Itálie']},
+  {cat:'Sport (těžší)',q:'Ve kterém roce se konalo úplně první mistrovství světa ve fotbale?',a:'1930',d:['1926','1934']},
+  {cat:'Sport (těžší)',q:'Kolik kol má standardně profesionální boxerský zápas na mistrovské úrovni?',a:'12',d:['10','15']},
+  {cat:'Sport (těžší)',q:'Jak se přezdívalo českému hokejovému brankáři Dominiku Haškovi pro jeho neortodoxní styl chytání?',a:'Dominátor',d:['Bourák','Kanonýr']},
+  {cat:'Sport (těžší)',q:'Kolik hráčů tvoří na ledě jeden hokejový tým bez brankáře?',a:'5',d:['6','4']},
+  {cat:'Sport (těžší)',q:'Který cyklista vyhrál Tour de France sedmkrát za sebou, než mu byly tituly odebrány za doping?',a:'Lance Armstrong',d:['Miguel Induráin','Eddy Merckx']},
+  {cat:'Sport (těžší)',q:'Kolik minut trvá standardní fotbalový zápas bez nastavení?',a:'90',d:['80','100']},
+
+  // Zeměpis (těžší)
+  {cat:'Zeměpis (těžší)',q:'Jaké je hlavní město Kazachstánu?',a:'Astana',d:['Almaty','Biškek']},
+  {cat:'Zeměpis (těžší)',q:'Který průliv odděluje Afriku od Evropy u Gibraltaru?',a:'Gibraltarský průliv',d:['Bosporský průliv','Ormuzský průliv']},
+  {cat:'Zeměpis (těžší)',q:'Která poušť je největší horkou pouští na světě?',a:'Sahara',d:['Gobi','Arabská poušť']},
+  {cat:'Zeměpis (těžší)',q:'Které sladkovodní jezero je největší na světě podle rozlohy?',a:'Hořejší jezero',d:['Bajkal','Viktoriino jezero']},
+  {cat:'Zeměpis (těžší)',q:'Mezi kterými dvěma zeměmi vede nejdelší státní hranice na světě?',a:'USA a Kanada',d:['Rusko a Kazachstán','Čína a Mongolsko']},
+  {cat:'Zeměpis (těžší)',q:'Které pohoří tvoří tradiční hranici mezi Evropou a Asií na území Ruska?',a:'Ural',d:['Kavkaz','Altaj']},
+  {cat:'Zeměpis (těžší)',q:'Který stát má své největší město (Istanbul) rozkročené na dvou kontinentech zároveň?',a:'Turecko',d:['Rusko','Egypt']},
+  {cat:'Zeměpis (těžší)',q:'Která evropská řeka protéká nejvíce státy na světě?',a:'Dunaj',d:['Nil','Amazonka']},
+  {cat:'Zeměpis (těžší)',q:'Který ostrov je největší na světě (nepočítáme-li kontinent Austrálii)?',a:'Grónsko',d:['Nová Guinea','Borneo']},
+  {cat:'Zeměpis (těžší)',q:'Které pohoří je nejdelší na světě?',a:'Andy',d:['Himálaj','Skalnaté hory']},
+  {cat:'Zeměpis (těžší)',q:'Na hranici kterých dvou zemí leží Viktoriiny vodopády?',a:'Zambie a Zimbabwe',d:['Jihoafrická republika a Namibie','Keňa a Tanzanie']},
+  {cat:'Zeměpis (těžší)',q:'Ve které zemi leží Grand Canyon?',a:'USA',d:['Mexiko','Kanada']},
 ];
 
 let questions=[], qSeq=1, enabledCats=new Set(), editingId=null;
@@ -181,7 +265,7 @@ function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.rando
 function escapeHtml(s){return (s||'').toString().replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function hexPts(cx,cy,s){const A=[-90,-30,30,90,150,210];return A.map(a=>{const r=a*Math.PI/180;return `${(cx+s*Math.cos(r)).toFixed(2)},${(cy+s*Math.sin(r)).toFixed(2)}`;}).join(' ');}
 
-const S=34,W=Math.sqrt(3)*S,ROWH=1.5*S;
+const S=34,W=Math.sqrt(3)*S,ROWH=1.5*S,HS=S*0.82;
 function computeVB(rows){
   const xs=[],ys=[];
   for(let r=0;r<rows;r++)for(let i=0;i<=r;i++){const cx=(i-r/2)*W,cy=r*ROWH;xs.push(cx-W/2,cx+W/2);ys.push(cy-S,cy+S);}
@@ -311,7 +395,7 @@ function cellColorL(c){if(c.state==='fresh')return 'var(--fresh)';if(c.state==='
 function isAvailL(c){return c.state==='fresh'||c.state==='black';}
 function renderBoard(){
   const {x,y,w,h}=G.vb;let svg=`<svg class="board" viewBox="${x} ${y} ${w} ${h}" role="grid" aria-label="Hrací pole">`;
-  for(const k in G.cells){const c=G.cells[k];const cx=(c.i-c.r/2)*W,cy=c.r*ROWH;const cls='hex'+(isAvailL(c)&&!G.over?' avail':'')+(c._sel?' sel':'')+(c._win?' win':'');const col=cellColorL(c);const pts=hexPts(cx,cy,S);svg+=`<polygon class="${cls}" points="${pts}" fill="${col}" style="color:${col}" data-k="${k}" tabindex="${isAvailL(c)&&!G.over?0:-1}" role="gridcell"></polygon><polygon class="hexSheen" points="${pts}" tabindex="-1"></polygon>`;}
+  for(const k in G.cells){const c=G.cells[k];const cx=(c.i-c.r/2)*W,cy=c.r*ROWH;const cls='hex'+(isAvailL(c)&&!G.over?' avail':'')+(c._sel?' sel':'')+(c._win?' win':'');const col=cellColorL(c);const pts=hexPts(cx,cy,HS);svg+=`<polygon class="${cls}" points="${pts}" fill="${col}" style="color:${col}" data-k="${k}" tabindex="${isAvailL(c)&&!G.over?0:-1}" role="gridcell"></polygon><polygon class="hexSheen" points="${pts}" tabindex="-1"></polygon>`;}
   svg+='</svg>';$('#boardHost').innerHTML=svg;
   $$('#boardHost .hex.avail').forEach(p=>{p.addEventListener('click',()=>onPick(p.dataset.k));p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onPick(p.dataset.k);}});});
 }
@@ -509,7 +593,7 @@ function renderOBoard(s){
     const avail=(v===-1||v===-2);const col=v===-1?'var(--fresh)':v===-2?'var(--black)':pcolor(v);
     const sel=s.q&&s.q.cell===key&&s.phase!=='idle';
     const cls='hex'+(avail&&myTurn?' avail':'')+(sel?' sel':'')+(winSet.has(key)?' win':'');
-    const pts=hexPts(cx,cy,S);
+    const pts=hexPts(cx,cy,HS);
     svg+=`<polygon class="${cls}" points="${pts}" fill="${col}" style="color:${col}" data-k="${key}" tabindex="${avail&&myTurn?0:-1}"></polygon><polygon class="hexSheen" points="${pts}" tabindex="-1"></polygon>`;
   }
   svg+='</svg>';$('#boardHost').innerHTML=svg;
@@ -547,7 +631,7 @@ function renderOModal(s){
       const b=document.createElement('button');b.className='opt';b.textContent=txt;b.type='button';
       if(rev){b.disabled=true;if(txt===rev.correctText)b.classList.add('correct');else if(txt===rev.chosen&&!rev.ok)b.classList.add('wrong');}
       else if(mine&&s.phase==='question'){b.onclick=()=>onlineAnswer(txt);}
-      else{b.disabled=true;}
+      else{b.disabled=true;b.classList.add('waitDisabled');}
       opts.appendChild(b);
     });
   }else{ // open
