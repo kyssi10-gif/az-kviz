@@ -26,24 +26,64 @@ const SEED_QUESTIONS=[
   {cat:'Outdoor & příroda',q:'Co znamená zkratka „UL“ u turistické výbavy?',a:'Ultralight',d:['Ultra Long','Universal Lock']},
   {cat:'Outdoor & příroda',q:'Nejvyšší vodopád v Česku?',a:'Pančavský vodopád',d:['Mumlavský vodopád','Vydra']},
   {cat:'Outdoor & příroda',q:'Kolik hlavních světových stran ukazuje kompas?',a:'4',d:['6','8']},
+  {cat:'Outdoor & příroda',q:'Jak se nazývá technika vrstvení oblečení podle funkce (spodní, střední, vrchní)?',a:'Vrstvení (layering)',d:['Rozvrstvení','Kaskádování']},
+  {cat:'Outdoor & příroda',q:'Který materiál se často používá jako lehká izolace do zimních bund místo prachového peří?',a:'Syntetická izolace (např. Primaloft)',d:['Bavlna','Len']},
+  {cat:'Outdoor & příroda',q:'Co udává tzv. „fill power“ u prachového peří?',a:'Kvalitu a nadýchanost peří',d:['Vodotěsnost bundy','Váhu spacáku']},
+  {cat:'Outdoor & příroda',q:'Jak se nazývá jednotka udávající vodní sloupec (voděodolnost) u outdoorových tkanin?',a:'mm vodního sloupce',d:['Denier','Bar']},
+  {cat:'Outdoor & příroda',q:'Který pohyblivý přírodní jev v horách vzniká sesuvem velkého množství sněhu?',a:'Lavina',d:['Sesuv půdy','Bystřina']},
+  {cat:'Outdoor & příroda',q:'Jak se nazývá nejvyšší hora světa?',a:'Mount Everest',d:['K2','Kangčendženga']},
+  {cat:'Outdoor & příroda',q:'Ve kterém pohoří leží nejvyšší hora Česka Sněžka?',a:'Krkonoše',d:['Jeseníky','Šumava']},
+  {cat:'Outdoor & příroda',q:'Jak se nazývá turistická značka s vlastní sítí, kterou v Česku spravuje KČT?',a:'Značené turistické trasy',d:['Naučné stezky','Cyklotrasy']},
+  {cat:'Outdoor & příroda',q:'Jak se nazývá spací pytel bez izolace na spodní straně, doplňovaný karimatkou?',a:'Quilt (přikrývka)',d:['Bivak', 'Iglú']},
+  {cat:'Outdoor & příroda',q:'Který přírodní park v Česku je znám pískovcovými skalními městy (např. Adršpach)?',a:'Adršpašsko-teplické skály',d:['Moravský kras','Prachovské skály']},
   {cat:'Auta & Tesla',q:'Na voze které značky byl postaven první Tesla Roadster?',a:'Lotus',d:['Porsche','Mazda']},
   {cat:'Auta & Tesla',q:'Co znamená zkratka SOH u baterie?',a:'State of Health',d:['Speed of Heat','Standard Output Hz']},
   {cat:'Auta & Tesla',q:'Jaký konektor pro rychlonabíjení používá Tesla v Evropě od Modelu 3?',a:'CCS Combo 2',d:['CHAdeMO','Type 1']},
   {cat:'Auta & Tesla',q:'V jaké jednotce se udává kapacita trakční baterie?',a:'kWh',d:['kW','Volt']},
   {cat:'Auta & Tesla',q:'Kdo je od roku 2008 generálním ředitelem Tesly?',a:'Elon Musk',d:['JB Straubel','Martin Eberhard']},
   {cat:'Auta & Tesla',q:'Jak se jmenuje asistenční systém řízení od Tesly?',a:'Autopilot',d:['CoPilot','DriveMate']},
+  {cat:'Auta & Tesla',q:'Ve kterém americkém státě má Tesla svou centrálu (k roku 2024)?',a:'Texas',d:['Kalifornie','Nevada']},
+  {cat:'Auta & Tesla',q:'Jak se jmenuje elektrický pickup od Tesly s hranatým designem?',a:'Cybertruck',d:['Model X','Roadster']},
+  {cat:'Auta & Tesla',q:'Který model Tesly byl první, co firma sama navrhla a vyrobila od základu (ne na cizí platformě)?',a:'Model S',d:['Roadster','Model 3']},
+  {cat:'Auta & Tesla',q:'Jak se nazývá Teslina síť rychlonabíjecích stanic?',a:'Supercharger',d:['FastCharge','PowerStation']},
+  {cat:'Auta & Tesla',q:'Co znamená zkratka BMS u elektromobilů?',a:'Battery Management System',d:['Brake Monitoring Sensor','Basic Motor Setup']},
+  {cat:'Auta & Tesla',q:'Jak se nazývá jev, kdy elektromobil při brzdění dobíjí baterii?',a:'Rekuperace',d:['Regenerace paliva','Reflexní brzdění']},
+  {cat:'Auta & Tesla',q:'Který typ motoru se nejčastěji používá v elektromobilech pro svou účinnost a spolehlivost?',a:'Elektromotor (synchronní/indukční)',d:['Dieselový motor','Wankelův motor']},
+  {cat:'Auta & Tesla',q:'Jak se česky běžně říká zásuvce/konektoru typu CCS na elektromobilu?',a:'Nabíjecí konektor',d:['Palivová hubice','Adaptér zapalování']},
+  {cat:'Auta & Tesla',q:'Který výrobce aut je považován za dlouhodobě prvního v sériové výrobě automobilů (Model T)?',a:'Ford',d:['General Motors','Chrysler']},
+  {cat:'Auta & Tesla',q:'Jak se jmenuje Teslin elektrický sportovní vůz plánovaný jako nástupce původního Roadsteru?',a:'Tesla Roadster (druhá generace)',d:['Tesla Model R','Tesla GT']},
   {cat:'Technika & programování',q:'Kdo je autorem jazyka Python?',a:'Guido van Rossum',d:['Linus Torvalds','James Gosling']},
   {cat:'Technika & programování',q:'Kterým příkazem vytvoříš v Gitu novou větev?',a:'git branch',d:['git new','git fork']},
   {cat:'Technika & programování',q:'Značkovací jazyk pro strukturu webových stránek?',a:'HTML',d:['CSS','HTTP']},
   {cat:'Technika & programování',q:'Odlehčený datový formát běžný v API?',a:'JSON',d:['JPEG','JAR']},
   {cat:'Technika & programování',q:'Nástroj v Excelu pro načítání a transformaci dat (ETL)?',a:'Power Query',d:['Power Pivot','Power BI']},
   {cat:'Technika & programování',q:'Co znamená HTTP status 404?',a:'Stránka nenalezena',d:['Přístup odepřen','Chyba serveru']},
+  {cat:'Technika & programování',q:'Jak se nazývá systém pro sledování verzí souborů, který vyvinul Linus Torvalds?',a:'Git',d:['Subversion','Mercurial']},
+  {cat:'Technika & programování',q:'Co znamená zkratka API?',a:'Application Programming Interface',d:['Automated Program Integration','Application Process Index']},
+  {cat:'Technika & programování',q:'Který jazyk se používá primárně pro stylování webových stránek?',a:'CSS',d:['HTML','JavaScript']},
+  {cat:'Technika & programování',q:'Jak se nazývá databázový jazyk pro dotazování relačních databází?',a:'SQL',d:['NoSQL','PHP']},
+  {cat:'Technika & programování',q:'Co znamená zkratka CPU?',a:'Central Processing Unit',d:['Computer Power Unit','Core Processing Utility']},
+  {cat:'Technika & programování',q:'Jak se nazývá platforma pro hostování a sdílení kódu pomocí Gitu, kterou vlastní Microsoft?',a:'GitHub',d:['GitLab','Bitbucket']},
+  {cat:'Technika & programování',q:'Který datový typ v programování reprezentuje true/false?',a:'Boolean',d:['Integer','String']},
+  {cat:'Technika & programování',q:'Jak se nazývá proces automatického spouštění testů a nasazení při každé změně kódu?',a:'CI/CD',d:['ETL','MVP']},
+  {cat:'Technika & programování',q:'Co znamená zkratka RAM?',a:'Random Access Memory',d:['Read Access Module','Rapid Application Memory']},
+  {cat:'Technika & programování',q:'Který programovací jazyk se používá primárně pro interaktivitu na webových stránkách v prohlížeči?',a:'JavaScript',d:['Python','C++']},
   {cat:'Všeobecné',q:'Hlavní město Česka?',a:'Praha',d:['Brno','Ostrava']},
   {cat:'Všeobecné',q:'Kolik má Česko krajů (včetně Prahy)?',a:'14',d:['13','8']},
   {cat:'Všeobecné',q:'Nejdelší řeka, která protéká celá jen Českem?',a:'Vltava',d:['Labe','Morava']},
   {cat:'Všeobecné',q:'Kdo napsal Osudy dobrého vojáka Švejka?',a:'Jaroslav Hašek',d:['Karel Čapek','Bohumil Hrabal']},
   {cat:'Všeobecné',q:'Z díla kterého českého autora pochází slovo „robot“?',a:'Karel Čapek',d:['Jules Verne','Isaac Asimov']},
   {cat:'Všeobecné',q:'Jaká je měna v Česku?',a:'Koruna česká',d:['Euro','Zlotý']},
+  {cat:'Všeobecné',q:'Kolik minut má jedna hodina?',a:'60',d:['100','30']},
+  {cat:'Všeobecné',q:'Jak se jmenuje nejvyšší hora světa?',a:'Mount Everest',d:['K2','Mont Blanc']},
+  {cat:'Všeobecné',q:'Který oceán je největší na světě?',a:'Tichý oceán',d:['Atlantský oceán','Indický oceán']},
+  {cat:'Všeobecné',q:'Kolik stupňů má pravý úhel?',a:'90',d:['180','45']},
+  {cat:'Všeobecné',q:'Jak se jmenuje naše nejbližší hvězda?',a:'Slunce',d:['Sirius','Polárka']},
+  {cat:'Všeobecné',q:'Kolik dní má obvykle únor v přestupném roce?',a:'29',d:['28','30']},
+  {cat:'Všeobecné',q:'Jaký je chemický vzorec vody?',a:'H2O',d:['CO2','O2']},
+  {cat:'Všeobecné',q:'Který kontinent je rozlohou největší?',a:'Asie',d:['Afrika','Severní Amerika']},
+  {cat:'Všeobecné',q:'Kolik barev má klasická duha?',a:'7',d:['5','9']},
+  {cat:'Všeobecné',q:'Ve kterém městě sídlí Evropský parlament (hlavní sídlo)?',a:'Štrasburk',d:['Brusel','Lucemburk']},
 
   // Hudba – moderní
   {cat:'Hudba – moderní',q:'Která britská skupina vydala album „Abbey Road“?',a:'The Beatles',d:['The Rolling Stones','Queen']},
@@ -61,6 +101,13 @@ const SEED_QUESTIONS=[
   {cat:'Hudba – moderní',q:'Kdo napsal a nazpíval „Rolling in the Deep“?',a:'Adele',d:['Amy Winehouse','Sia']},
   {cat:'Hudba – moderní',q:'Jak se jmenuje kapela, jejímž frontmanem je Chris Martin?',a:'Coldplay',d:['Keane','Muse']},
   {cat:'Hudba – moderní',q:'Který hudební žánr proslavil Bob Marley?',a:'Reggae',d:['Blues','Jazz']},
+  {cat:'Hudba – moderní',q:'Jak se jmenuje americká zpěvačka známá hitem „Bad Romance“?',a:'Lady Gaga',d:['Beyoncé','Rihanna']},
+  {cat:'Hudba – moderní',q:'Ve které kapele zpíval Kurt Cobain?',a:'Nirvana',d:['Pearl Jam','Soundgarden']},
+  {cat:'Hudba – moderní',q:'Jak se jmenuje žánr elektronické taneční hudby zkráceně EDM?',a:'Electronic Dance Music',d:['Electric Disco Mix','Extended Dance Melody']},
+  {cat:'Hudba – moderní',q:'Který zpěvák je znám jako frontman skupiny Linkin Park až do své smrti v roce 2017?',a:'Chester Bennington',d:['Mike Shinoda','Chris Cornell']},
+  {cat:'Hudba – moderní',q:'Který kanadský zpěvák a rapper je autorem hitu „One Dance“?',a:'Drake',d:['The Weeknd','Justin Bieber']},
+  {cat:'Hudba – moderní',q:'Ve které kapele hrál baskytarista a zpěvák Sting?',a:'The Police',d:['Genesis','Dire Straits']},
+  {cat:'Hudba – moderní',q:'Jak se jmenuje hudební festival konaný tradičně v poušti Black Rock v Nevadě?',a:'Burning Man',d:['Coachella','Tomorrowland']},
   {cat:'Hudba – moderní',q:'Jak se jmenuje amerického rapera a producenta, spoluzakladatele značky Beats?',a:'Dr. Dre',d:['Snoop Dogg','Eminem']},
 
   // Hudba – klasická
@@ -80,6 +127,10 @@ const SEED_QUESTIONS=[
   {cat:'Hudba – klasická',q:'Který ruský skladatel zkomponoval operu „Evžen Oněgin“?',a:'Petr Iljič Čajkovskij',d:['Sergej Rachmaninov','Modest Musorgskij']},
   {cat:'Hudba – klasická',q:'Kdo napsal „Rekviem“, které po jeho smrti dokončil žák Süssmayr?',a:'Wolfgang Amadeus Mozart',d:['Joseph Haydn','Ludwig van Beethoven']},
   {cat:'Hudba – klasická',q:'Jak se jmenuje Dvořákova nejslavnější symfonie s podtitulem odkazujícím na Ameriku?',a:'Novosvětská symfonie',d:['Eroica','Pastorální symfonie']},
+  {cat:'Hudba – klasická',q:'Jak se nazývá Beethovenova třetí symfonie, původně věnovaná Napoleonovi?',a:'Eroica',d:['Osudová','Pastorální']},
+  {cat:'Hudba – klasická',q:'Kdo zkomponoval operu „Kouzelná flétna“?',a:'Wolfgang Amadeus Mozart',d:['Ludwig van Beethoven','Joseph Haydn']},
+  {cat:'Hudba – klasická',q:'Jak se nazývá skladba pro jednoho sólového hráče a orchestr, typická pro klasickou hudbu?',a:'Koncert',d:['Symfonie','Sonáta']},
+  {cat:'Hudba – klasická',q:'Který český hudební skladatel je autorem „Sinfonietty“?',a:'Leoš Janáček',d:['Bohuslav Martinů','Vítězslav Novák']},
 
   // Hry: Minecraft
   {cat:'Hry: Minecraft',q:'Pod jakou přezdívkou vytvořil Minecraft Markus Persson?',a:'Notch',d:['Jeb','Dinnerbone']},
@@ -98,6 +149,13 @@ const SEED_QUESTIONS=[
   {cat:'Hry: Minecraft',q:'Jak se jmenuje nejvzácnější nerost přidaný do Netheru, silnější než diamant?',a:'Netherit',d:['Smaragd','Zlato']},
   {cat:'Hry: Minecraft',q:'Ve kterém roce koupil Microsoft studio Mojang?',a:'2014',d:['2011','2016']},
   {cat:'Hry: Minecraft',q:'Jak se nazývá nejtvrdší, nezničitelná hornina tvořící okraj světa?',a:'Bedrock',d:['Obsidian','Žula']},
+  {cat:'Hry: Minecraft',q:'Jak se jmenuje létající nepřátelský tvor v Netheru, který střílí ohnivé koule?',a:'Ghast',d:['Blaze','Phantom']},
+  {cat:'Hry: Minecraft',q:'Jaký nástroj je potřeba k dojení krávy nebo stříhání ovce?',a:'Vědro / nůžky',d:['Motyka','Rýč']},
+  {cat:'Hry: Minecraft',q:'Jak se nazývá stavební blok vyrobený vypálením písku v peci?',a:'Sklo',d:['Terakota','Beton']},
+  {cat:'Hry: Minecraft',q:'Jak se jmenuje mechanismus na bázi červeného kamene (redstone), který funguje jako logická spínací jednotka?',a:'Redstonový obvod',d:['Pístový modul','Energetický blok']},
+  {cat:'Hry: Minecraft',q:'Který mód hry generuje svět nekonečně náhodně na základě zadaného čísla?',a:'Seed (semínko světa)',d:['Mod','Shader']},
+  {cat:'Hry: Minecraft',q:'Jak se jmenuje edice Minecraftu optimalizovaná pro mobily, konzole a Windows, sdílející multiplayer napříč platformami?',a:'Bedrock Edition',d:['Java Edition','Legacy Edition']},
+  {cat:'Hry: Minecraft',q:'Jak se nazývá nepřátelský tvor tvořený krychlemi, co se po zásahu rozpadá na menší kousky?',a:'Slime',d:['Silverfish','Magma Cube']},
 
   // Hry: League of Legends
   {cat:'Hry: League of Legends',q:'Která společnost vyvíjí League of Legends?',a:'Riot Games',d:['Blizzard Entertainment','Valve']},
@@ -116,6 +174,13 @@ const SEED_QUESTIONS=[
   {cat:'Hry: League of Legends',q:'Jak se jmenuje jihokorejský esportový tým se zkratkou „T1“, jeden z nejúspěšnějších v historii LoL?',a:'T1',d:['G2 Esports','Fnatic']},
   {cat:'Hry: League of Legends',q:'Kolik hlavních linií (lanes) má standardní mapa Summoner’s Rift?',a:'3',d:['2','4']},
   {cat:'Hry: League of Legends',q:'Jak se jmenuje virtuální měna, za kterou lze v obchodě kupovat kosmetické skiny?',a:'Riot Points (RP)',d:['Gold','Essence']},
+  {cat:'Hry: League of Legends',q:'Jak se nazývá role hráče, který hraje uprostřed mapy a často volí bojová kouzla?',a:'Mid laner',d:['Support','Top laner']},
+  {cat:'Hry: League of Legends',q:'Jak se jmenuje pozice hráče, který se pohybuje po džungli a láká na neutrální příšery?',a:'Jungler',d:['Support','ADC']},
+  {cat:'Hry: League of Legends',q:'Jak se nazývá role hráče, který hraje střelce ve spodní linii a spoléhá na útoky ze zálohy?',a:'ADC (střelec)',d:['Tank','Mage']},
+  {cat:'Hry: League of Legends',q:'Jak se jmenuje vstupní obranná stavba, kterou musí tým zničit před útokem na nexus?',a:'Inhibitor',d:['Turret','Ward']},
+  {cat:'Hry: League of Legends',q:'Jak se nazývá předmět, který hráči pokládají pro odhalení nepřátel v mlze?',a:'Ward (hlídka)',d:['Trinket','Totem']},
+  {cat:'Hry: League of Legends',q:'Jak se jmenuje herní mód s rychlejším tempem na menší mapě „Howling Abyss“?',a:'ARAM',d:['Blind Pick','Clash']},
+  {cat:'Hry: League of Legends',q:'Jak se jmenuje čtvrtletní menší mezinárodní turnaj LoL konaný před sezónním play-off?',a:'MSI (Mid-Season Invitational)',d:['Worlds','All-Star']},
 
   // Hry: CS2
   {cat:'Hry: CS2',q:'Která firma vyvinula sérii Counter‑Strike?',a:'Valve',d:['Epic Games','Riot Games']},
@@ -134,6 +199,13 @@ const SEED_QUESTIONS=[
   {cat:'Hry: CS2',q:'Jak se nazývá rychlý herní mód s volným respawnem, oblíbený pro warm‑up?',a:'Deathmatch',d:['Wingman','Retake']},
   {cat:'Hry: CS2',q:'Jak se nazývají nejprestižnější turnaje CS scény, pořádané pod záštitou Valve?',a:'Majors',d:['Minors','Legends Stage']},
   {cat:'Hry: CS2',q:'Jaký je český/obecný název pro herní peníze, za které si hráči na začátku kola kupují zbraně?',a:'Ekonomika (peníze na nákup)',d:['Zlato','Kredity']},
+  {cat:'Hry: CS2',q:'Jak se nazývá vybavení, které chrání hráče před poškozením a musí se koupit zvlášť na hlavu?',a:'Helma a vesta (armor)',d:['Štít','Batoh']},
+  {cat:'Hry: CS2',q:'Jak se jmenuje granát, který dočasně oslepí protihráče bílým zábleskem?',a:'Flashbang',d:['Smoke','HE granát']},
+  {cat:'Hry: CS2',q:'Jak se nazývá granát vytvářející neprůhlednou clonu, za kterou se dá bezpečně přesunout?',a:'Smoke (dýmovnice)',d:['Molotov','Decoy']},
+  {cat:'Hry: CS2',q:'Jak se jmenuje pistole, kterou hráči často kupují v tzv. „pistol roundu“ na začátku poloviny?',a:'Podle strany (Glock/USP-S/P250)',d:['AWP','AK-47']},
+  {cat:'Hry: CS2',q:'Kolik kol standardně stačí vyhrát k celkovému vítězství v klasickém competitive formátu (MR12)?',a:'13',d:['16','10']},
+  {cat:'Hry: CS2',q:'Jak se nazývá granát, který zapaluje plochu a brání v průchodu?',a:'Molotov / zápalná láhev',d:['Smoke','Flashbang']},
+  {cat:'Hry: CS2',q:'Jak se nazývá pozice hráče, který jako první vstupuje do prostoru a riskuje první kontakt s nepřítelem?',a:'Entry fragger',d:['Lurker','AWPer']},
 
   // Zvířata: psi a kočky
   {cat:'Zvířata: psi a kočky',q:'Jak se nazývá nejmenší plemeno psa na světě podle výšky?',a:'Čivava',d:['Yorkšírský teriér','Pekingský palácový psík']},
@@ -152,6 +224,13 @@ const SEED_QUESTIONS=[
   {cat:'Zvířata: psi a kočky',q:'Jak se nazývá chování kočky, kdy hlasitě vrní na znamení spokojenosti?',a:'Předení',d:['Mňoukání','Prskání']},
   {cat:'Zvířata: psi a kočky',q:'Které plemeno psa je typické extrémně krátkýma nohama a dlouhým tělem?',a:'Jezevčík',d:['Baset','Korgi']},
   {cat:'Zvířata: psi a kočky',q:'Jak se česky nazývá skupina koťat narozených ve stejném vrhu?',a:'Vrh',d:['Smečka','Hejno']},
+  {cat:'Zvířata: psi a kočky',q:'Jak se nazývá plemeno psa s typickými dlouhými visícími ušima, oblíbené jako čichací stopař?',a:'Bassett/Bloodhound (stopař)',d:['Ohař','Teriér']},
+  {cat:'Zvířata: psi a kočky',q:'Kolik obvykle žije domácí kočka let při dobré péči?',a:'12–18 let',d:['5–8 let','25–30 let']},
+  {cat:'Zvířata: psi a kočky',q:'Jak se nazývá reflex, díky kterému kočka téměř vždy dopadne po pádu na nohy?',a:'Narovnávací reflex',d:['Únikový reflex','Lovecký reflex']},
+  {cat:'Zvířata: psi a kočky',q:'Které plemeno psa je typické svým naprosto černým jazykem?',a:'Čou-čou',d:['Akita','Šarpej']},
+  {cat:'Zvířata: psi a kočky',q:'Jak se nazývá organizace, která celosvětově uznává a registruje psí plemena (mezinárodní federace)?',a:'FCI (Fédération Cynologique Internationale)',d:['WHO','IOC']},
+  {cat:'Zvířata: psi a kočky',q:'Které plemeno kočky má typicky modré oči a světlou srst s tmavými „body“?',a:'Siamská kočka',d:['Ruská modrá','Britská krátkosrstá']},
+  {cat:'Zvířata: psi a kočky',q:'Jak se nazývá psí plemeno vyšlechtěné v Německu k lovu jezevců a nořícím se do nor?',a:'Jezevčík',d:['Foxteriér','Baset']},
 
   // Zeměpis: státy světa
   {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Austrálie?',a:'Canberra',d:['Sydney','Melbourne']},
@@ -170,6 +249,15 @@ const SEED_QUESTIONS=[
   {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Nového Zélandu?',a:'Wellington',d:['Auckland','Christchurch']},
   {cat:'Zeměpis: státy světa',q:'Který stát je rozlohou nejmenší v Jižní Americe?',a:'Surinam',d:['Uruguay','Guyana']},
   {cat:'Zeměpis: státy světa',q:'Který průplav v Panamě spojuje Atlantský a Tichý oceán?',a:'Panamský průplav',d:['Suezský průplav','Kielský průplav']},
+  {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Argentiny?',a:'Buenos Aires',d:['Santiago','Montevideo']},
+  {cat:'Zeměpis: státy světa',q:'Ve které zemi leží starobylé město Petra vytesané do skal?',a:'Jordánsko',d:['Egypt','Sýrie']},
+  {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Thajska?',a:'Bangkok',d:['Hanoj','Jakarta']},
+  {cat:'Zeměpis: státy světa',q:'Který stát tvoří spolu s Anglií, Skotskem a Severním Irskem Spojené království?',a:'Wales',d:['Irsko','Man']},
+  {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Švédska?',a:'Stockholm',d:['Oslo','Helsinky']},
+  {cat:'Zeměpis: státy světa',q:'Ve které zemi leží slavné Viktoriino jezero (částečně)?',a:'Tanzanie / Uganda / Keňa',d:['Jihoafrická republika','Etiopie']},
+  {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Řecka?',a:'Atény',d:['Soluň','Patra']},
+  {cat:'Zeměpis: státy světa',q:'Který stát je rozlohou největší v Jižní Americe?',a:'Brazílie',d:['Argentina','Peru']},
+  {cat:'Zeměpis: státy světa',q:'Jaké je hlavní město Norska?',a:'Oslo',d:['Bergen','Stockholm']},
 
   // Historie (těžší)
   {cat:'Historie (těžší)',q:'Ve kterém roce vypukla třicetiletá válka?',a:'1618',d:['1648','1588']},
@@ -184,6 +272,10 @@ const SEED_QUESTIONS=[
   {cat:'Historie (těžší)',q:'Ve kterém roce byla podepsána Mnichovská dohoda bez účasti Československa?',a:'1938',d:['1939','1937']},
   {cat:'Historie (těžší)',q:'Jak se jmenovala první žena, která samostatně vládla starověkému Egyptu jako faraon?',a:'Hatšepsut',d:['Kleopatra','Nefertiti']},
   {cat:'Historie (těžší)',q:'Který starověký jihoamerický národ postavil Machu Picchu?',a:'Inkové',d:['Aztékové','Mayové']},
+  {cat:'Historie (těžší)',q:'Ve kterém roce skončila druhá světová válka v Evropě?',a:'1945',d:['1944','1946']},
+  {cat:'Historie (těžší)',q:'Kdo byl prvním československým prezidentem?',a:'Tomáš Garrigue Masaryk',d:['Edvard Beneš','Milan Rastislav Štefánik']},
+  {cat:'Historie (těžší)',q:'V kterém roce padla Berlínská zeď?',a:'1989',d:['1991','1987']},
+  {cat:'Historie (těžší)',q:'Který starověký národ postavil pyramidy v Gíze?',a:'Staří Egypťané',d:['Sumerové','Féničané']},
 
   // Věda a vesmír (těžší)
   {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá nejbližší velká galaxie k naší Mléčné dráze?',a:'Galaxie v Andromedě',d:['Trojúhelníková galaxie','Velké Magellanovo mračno']},
@@ -198,6 +290,15 @@ const SEED_QUESTIONS=[
   {cat:'Věda a vesmír (těžší)',q:'Kolik planet obíhá kolem Slunce od vyřazení Pluta z definice planety?',a:'8',d:['9','7']},
   {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá teorie popisující vznik vesmíru z jednoho extrémně horkého a hustého bodu?',a:'Teorie velkého třesku',d:['Teorie strun','Teorie multivesmíru']},
   {cat:'Věda a vesmír (těžší)',q:'Který plyn tvoří většinu objemu zemské atmosféry?',a:'Dusík',d:['Kyslík','Oxid uhličitý']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se jmenuje nejbližší planeta ke Slunci?',a:'Merkur',d:['Venuše','Mars']},
+  {cat:'Věda a vesmír (těžší)',q:'Který vědec je považován za objevitele penicilinu?',a:'Alexander Fleming',d:['Louis Pasteur','Robert Koch']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá proces dělení jádra atomu uvolňující velké množství energie?',a:'Jaderné štěpení',d:['Jaderná fúze','Radioaktivní rozpad']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se jmenuje první člověk, který vkročil na Měsíc?',a:'Neil Armstrong',d:['Buzz Aldrin','Jurij Gagarin']},
+  {cat:'Věda a vesmír (těžší)',q:'Který orgán lidského těla čerpá a rozvádí krev?',a:'Srdce',d:['Játra','Slezina']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá jednotka elektrického napětí?',a:'Volt',d:['Ampér','Watt']},
+  {cat:'Věda a vesmír (těžší)',q:'Který plyn rostliny při fotosyntéze uvolňují jako vedlejší produkt?',a:'Kyslík',d:['Dusík','Vodík']},
+  {cat:'Věda a vesmír (těžší)',q:'Jak se nazývá největší planeta sluneční soustavy?',a:'Jupiter',d:['Saturn','Neptun']},
+  {cat:'Věda a vesmír (těžší)',q:'Který vědec je autorem periodické tabulky prvků?',a:'Dmitrij Mendělejev',d:['Marie Curie','Antoine Lavoisier']},
 
   // Filmy a seriály (těžší)
   {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval film „Pulp Fiction“?',a:'Quentin Tarantino',d:['Martin Scorsese','David Fincher']},
@@ -212,6 +313,15 @@ const SEED_QUESTIONS=[
   {cat:'Filmy a seriály (těžší)',q:'Ve kterém seriálu učitel chemie z Albuquerque začne vařit drogy?',a:'Perníkový táta (Breaking Bad)',d:['Ozark','Narcos']},
   {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval film „Počátek“ (Inception)?',a:'Christopher Nolan',d:['Denis Villeneuve','Ridley Scott']},
   {cat:'Filmy a seriály (těžší)',q:'Který animovaný film od Pixaru se odehrává v hlavě dívky jménem Riley?',a:'V hlavě (Inside Out)',d:['Coco','Ratatouille']},
+  {cat:'Filmy a seriály (těžší)',q:'Který herec ztvárnil postavu Neo ve filmové sérii Matrix?',a:'Keanu Reeves',d:['Brad Pitt','Tom Cruise']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval film „Titanic“ z roku 1997?',a:'James Cameron',d:['Steven Spielberg','Ron Howard']},
+  {cat:'Filmy a seriály (těžší)',q:'Ve kterém sci-fi seriálu létá posádka lodí Enterprise vesmírem?',a:'Star Trek',d:['Star Wars','Battlestar Galactica']},
+  {cat:'Filmy a seriály (těžší)',q:'Který herec hrál hlavní roli Waltera Whitea v seriálu Perníkový táta?',a:'Bryan Cranston',d:['Aaron Paul','Giancarlo Esposito']},
+  {cat:'Filmy a seriály (těžší)',q:'Kdo režíroval trilogii filmů o Batmanovi „The Dark Knight“?',a:'Christopher Nolan',d:['Tim Burton','Zack Snyder']},
+  {cat:'Filmy a seriály (těžší)',q:'Který studiový film uvedl poprvé postavu Mickey Mouse v roce 1928?',a:'Steamboat Willie',d:['Fantasia','Sněhurka a sedm trpaslíků']},
+  {cat:'Filmy a seriály (těžší)',q:'Ve kterém filmu z roku 1994 hraje Tom Hanks postavu s nízkým IQ, která zažívá klíčové okamžiky americké historie?',a:'Forrest Gump',d:['Philadelphia','Cast Away']},
+  {cat:'Filmy a seriály (těžší)',q:'Který režisér stojí za filmy „Vetřelec“ a „Blade Runner“?',a:'Ridley Scott',d:['James Cameron','George Lucas']},
+  {cat:'Filmy a seriály (těžší)',q:'Jak se jmenuje fiktivní město, ve kterém se odehrává většina filmů o Batmanovi?',a:'Gotham City',d:['Metropolis','Central City']},
 
   // Literatura (těžší)
   {cat:'Literatura (těžší)',q:'Kdo napsal román „Válka a mír“?',a:'Lev Nikolajevič Tolstoj',d:['Fjodor Dostojevskij','Anton Čechov']},
@@ -226,6 +336,9 @@ const SEED_QUESTIONS=[
   {cat:'Literatura (těžší)',q:'Který český básník napsal lyrickoepickou skladbu „Máj“?',a:'Karel Hynek Mácha',d:['Jan Neruda','Jaroslav Vrchlický']},
   {cat:'Literatura (těžší)',q:'Kdo napsal román „Sto roků samoty“?',a:'Gabriel García Márquez',d:['Jorge Luis Borges','Mario Vargas Llosa']},
   {cat:'Literatura (těžší)',q:'Která anglická autorka napsala „Pýchu a předsudek“?',a:'Jane Austenová',d:['Charlotte Brontëová','Virginia Woolfová']},
+  {cat:'Literatura (těžší)',q:'Kdo napsal pohádkovou knihu „Malý princ“?',a:'Antoine de Saint-Exupéry',d:['Jules Verne','Charles Perrault']},
+  {cat:'Literatura (těžší)',q:'Který český spisovatel napsal „Osudy dobrého vojáka Švejka za světové války“ celým názvem?',a:'Jaroslav Hašek',d:['Karel Poláček','Jan Werich']},
+  {cat:'Literatura (těžší)',q:'Kdo je autorem fantasy série „Zeměplocha“?',a:'Terry Pratchett',d:['Neil Gaiman','Douglas Adams']},
 
   // Sport (těžší)
   {cat:'Sport (těžší)',q:'Ve kterém městě se konaly první novodobé olympijské hry v roce 1896?',a:'Athény',d:['Paříž','Londýn']},
@@ -240,6 +353,15 @@ const SEED_QUESTIONS=[
   {cat:'Sport (těžší)',q:'Kolik hráčů tvoří na ledě jeden hokejový tým bez brankáře?',a:'5',d:['6','4']},
   {cat:'Sport (těžší)',q:'Který cyklista vyhrál Tour de France sedmkrát za sebou, než mu byly tituly odebrány za doping?',a:'Lance Armstrong',d:['Miguel Induráin','Eddy Merckx']},
   {cat:'Sport (těžší)',q:'Kolik minut trvá standardní fotbalový zápas bez nastavení?',a:'90',d:['80','100']},
+  {cat:'Sport (těžší)',q:'Ve kterém sportu se hraje o trofej zvanou Stanley Cup?',a:'Lední hokej',d:['Basketbal','Baseball']},
+  {cat:'Sport (těžší)',q:'Kolik hráčů je na hřišti v basketbalovém týmu (bez střídajících)?',a:'5',d:['6','7']},
+  {cat:'Sport (těžší)',q:'Ve kterém městě se konaly letní olympijské hry v roce 2021 (přeloženy z 2020)?',a:'Tokio',d:['Paříž','Peking']},
+  {cat:'Sport (těžší)',q:'Jak se nazývá nejprestižnější cyklistický etapový závod konaný ve Francii?',a:'Tour de France',d:['Giro d’Italia','Vuelta a España']},
+  {cat:'Sport (těžší)',q:'Kolik setů se hraje ve volejbale standardně na vítězství (do kolika vítězných setů)?',a:'3',d:['2','4']},
+  {cat:'Sport (těžší)',q:'Který sport je typický pro použití hole zvané „biřle“ a hraje se na ledě mezi dvěma týmy s kamenem?',a:'Curling',d:['Bandy','Ringette']},
+  {cat:'Sport (těžší)',q:'Kolik hráčů má na hřišti jeden tým v ragby union (15členné družstvo)?',a:'15',d:['13','11']},
+  {cat:'Sport (těžší)',q:'Ve kterém roce naposledy získala česká hokejová reprezentace zlato na mistrovství světa (domácí šampionát v Praze)?',a:'2024',d:['2010','2005']},
+  {cat:'Sport (těžší)',q:'Jak se nazývá nejvyšší fotbalová soutěž klubů v Evropě, kterou pořádá UEFA?',a:'Liga mistrů',d:['Evropská liga','Konferenční liga']},
 
   // Zeměpis (těžší)
   {cat:'Zeměpis (těžší)',q:'Jaké je hlavní město Kazachstánu?',a:'Astana',d:['Almaty','Biškek']},
@@ -254,6 +376,94 @@ const SEED_QUESTIONS=[
   {cat:'Zeměpis (těžší)',q:'Které pohoří je nejdelší na světě?',a:'Andy',d:['Himálaj','Skalnaté hory']},
   {cat:'Zeměpis (těžší)',q:'Na hranici kterých dvou zemí leží Viktoriiny vodopády?',a:'Zambie a Zimbabwe',d:['Jihoafrická republika a Namibie','Keňa a Tanzanie']},
   {cat:'Zeměpis (těžší)',q:'Ve které zemi leží Grand Canyon?',a:'USA',d:['Mexiko','Kanada']},
+
+  // Jídlo a vaření
+  {cat:'Jídlo a vaření',q:'Z jaké země pochází pokrm sushi?',a:'Japonsko',d:['Čína','Korea']},
+  {cat:'Jídlo a vaření',q:'Jaká surovina je základem klasického italského pesta?',a:'Bazalka',d:['Petržel','Špenát']},
+  {cat:'Jídlo a vaření',q:'Jak se nazývá proces pomalého vaření masa ve vlastní šťávě při nízké teplotě?',a:'Dušení',d:['Blanšírování','Flambování']},
+  {cat:'Jídlo a vaření',q:'Který koření dodává currymu typickou žlutou barvu?',a:'Kurkuma',d:['Šafrán','Paprika']},
+  {cat:'Jídlo a vaření',q:'Z jaké mouky se tradičně vyrábí italské těstoviny?',a:'Z pšeničné (semolinové) mouky',d:['Z rýžové mouky','Z kukuřičné mouky']},
+  {cat:'Jídlo a vaření',q:'Jak se nazývá francouzská technika krátkého opečení masa na prudkém ohni?',a:'Sear (opečení za vysoké teploty)',d:['Confit','Poaching']},
+  {cat:'Jídlo a vaření',q:'Který sýr se tradičně používá na pravou italskou pizzu Margheritu?',a:'Mozzarella',d:['Parmazán','Gorgonzola']},
+  {cat:'Jídlo a vaření',q:'Z jaké rostliny se získává čokoláda?',a:'Kakaovník',d:['Vanilkovník','Kávovník']},
+  {cat:'Jídlo a vaření',q:'Jak se nazývá francouzský vývar, základ mnoha omáček?',a:'Fond (vývar)',d:['Roux','Bujón']},
+  {cat:'Jídlo a vaření',q:'Který nápoj vzniká fermentací hroznů?',a:'Víno',d:['Pivo','Cider']},
+  {cat:'Jídlo a vaření',q:'Jak se jmenuje tradiční český pokrm z bramborového těsta plněný uzeným masem?',a:'Bramborové knedlíky',d:['Halušky','Škubánky']},
+  {cat:'Jídlo a vaření',q:'Který koření se získává ze sušených tyčinek kůry stromu skořicovníku?',a:'Skořice',d:['Muškátový oříšek','Hřebíček']},
+  {cat:'Jídlo a vaření',q:'Jak se nazývá proces krátkého povaření zeleniny a jejího prudkého zchlazení v ledové vodě?',a:'Blanšírování',d:['Marinování','Karamelizace']},
+  {cat:'Jídlo a vaření',q:'Z jaké země pochází pokrm paella?',a:'Španělsko',d:['Portugalsko','Itálie']},
+
+  // Auta obecně
+  {cat:'Auta obecně',q:'Který výrobce aut používá logo se čtyřmi propojenými kruhy?',a:'Audi',d:['BMW','Mercedes-Benz']},
+  {cat:'Auta obecně',q:'Jaký je český výrobce automobilů se sídlem v Mladé Boleslavi?',a:'Škoda Auto',d:['Tatra','Praga']},
+  {cat:'Auta obecně',q:'Co znamená zkratka ABS u automobilů?',a:'Protiblokovací systém brzd',d:['Automatický bezpečnostní systém','Asistent brzdného startu']},
+  {cat:'Auta obecně',q:'Který typ motoru spaluje palivo pomocí kompresního zapálení bez zapalovací svíčky?',a:'Vznětový (dieselový) motor',d:['Zážehový motor','Wankelův motor']},
+  {cat:'Auta obecně',q:'Jak se nazývá převodovka, která mění převodové stupně automaticky bez zásahu řidiče?',a:'Automatická převodovka',d:['Manuální převodovka','Sekvenční převodovka']},
+  {cat:'Auta obecně',q:'Který italský výrobce sportovních aut má ve znaku vzpínajícího se černého koně?',a:'Ferrari',d:['Lamborghini','Maserati']},
+  {cat:'Auta obecně',q:'Co znamená zkratka SUV?',a:'Sport Utility Vehicle',d:['Speed Utility Van','Standard Urban Vehicle']},
+  {cat:'Auta obecně',q:'Jak se nazývá součástka tlumící nárazy mezi kolem a karoserií?',a:'Tlumič pérování',d:['Alternátor','Turbodmychadlo']},
+  {cat:'Auta obecně',q:'Který německý výrobce má ve znaku modro-bílý kruh připomínající vrtuli letadla?',a:'BMW',d:['Audi','Volkswagen']},
+  {cat:'Auta obecně',q:'Co znamená zkratka 4x4 u automobilů?',a:'Pohon všech čtyř kol',d:['Čtyřdveřový model','Čtyřválcový motor']},
+  {cat:'Auta obecně',q:'Jak se nazývá zařízení, které stlačuje nasávaný vzduch pro zvýšení výkonu motoru?',a:'Turbodmychadlo',d:['Alternátor','Katalyzátor']},
+  {cat:'Auta obecně',q:'Který americký výrobce je typický pro velké pickupy a značku s modrým oválem?',a:'Ford',d:['Chevrolet','Dodge']},
+  {cat:'Auta obecně',q:'Jak se nazývá zařízení snižující škodlivé emise ve výfukovém systému spalovacího motoru?',a:'Katalyzátor',d:['Tlumič výfuku','Filtr pevných částic']},
+  {cat:'Auta obecně',q:'Který český výrobce nákladních aut a terénních vozidel sídlí v Kopřivnici?',a:'Tatra',d:['Škoda','Avia']},
+
+  // Fyzika a matematika
+  {cat:'Fyzika a matematika',q:'Jak se nazývá jednotka síly v soustavě SI?',a:'Newton',d:['Joule','Watt']},
+  {cat:'Fyzika a matematika',q:'Kolik je odmocnina ze 144?',a:'12',d:['14','11']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá Newtonův zákon popisující akci a reakci?',a:'Třetí Newtonův zákon',d:['První Newtonův zákon','Druhý Newtonův zákon']},
+  {cat:'Fyzika a matematika',q:'Jaká je přibližná hodnota čísla pí na dvě desetinná místa?',a:'3,14',d:['3,41','3,12']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá jednotka elektrického odporu?',a:'Ohm',d:['Ampér','Farad']},
+  {cat:'Fyzika a matematika',q:'Kolik stupňů má součet vnitřních úhlů trojúhelníku?',a:'180',d:['360','90']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá síla, která táhne objekty směrem k zemi?',a:'Gravitace',d:['Setrvačnost','Magnetismus']},
+  {cat:'Fyzika a matematika',q:'Jaká je přibližná rychlost světla ve vakuu?',a:'300 000 km/s',d:['150 000 km/s','1 000 000 km/s']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá číslo, které lze dělit pouze jedničkou a sebou samým?',a:'Prvočíslo',d:['Sudé číslo','Celé číslo']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá jednotka výkonu v soustavě SI?',a:'Watt',d:['Joule','Newton']},
+  {cat:'Fyzika a matematika',q:'Kolik je 7 na druhou?',a:'49',d:['56','42']},
+  {cat:'Fyzika a matematika',q:'Jak se nazývá teorie, podle které energii a hmotu nelze vytvořit ani zničit, jen přeměnit?',a:'Zákon zachování energie',d:['Termodynamický rozpad','Kvantová superpozice']},
+
+  // Hry: obecné
+  {cat:'Hry: obecné',q:'Který výrobce stojí za herní konzolí PlayStation?',a:'Sony',d:['Microsoft','Nintendo']},
+  {cat:'Hry: obecné',q:'Jak se jmenuje italský instalatér, hlavní postava her od Nintenda?',a:'Mario',d:['Luigi','Wario']},
+  {cat:'Hry: obecné',q:'Který žánr her je typický pohledem z první osoby a střílením (zkratka FPS)?',a:'First-Person Shooter',d:['Real-Time Strategy','Role-Playing Game']},
+  {cat:'Hry: obecné',q:'Jak se jmenuje open-world hra od studia Rockstar odehrávající se v americkém velkoměstě?',a:'Grand Theft Auto (GTA)',d:['Watch Dogs','Saints Row']},
+  {cat:'Hry: obecné',q:'Který herní žánr je typický budováním základny a taktickým velením jednotek (zkratka RTS)?',a:'Real-Time Strategy',d:['MOBA','MMORPG']},
+  {cat:'Hry: obecné',q:'Jak se jmenuje digitální distribuční platforma pro PC hry od Valve?',a:'Steam',d:['Epic Games Store','GOG']},
+  {cat:'Hry: obecné',q:'Který český herní vývojářský tým stojí za sérií Kingdom Come: Deliverance?',a:'Warhorse Studios',d:['Bohemia Interactive','Amanita Design']},
+  {cat:'Hry: obecné',q:'Jak se jmenuje sériová postava lovkyně pokladů z her Tomb Raider?',a:'Lara Croft',d:['Nathan Drake','Jill Valentine']},
+  {cat:'Hry: obecné',q:'Který žánr her je typický sbíráním surovin a přežíváním v otevřeném světě?',a:'Survival',d:['Puzzle','Rhythm game']},
+  {cat:'Hry: obecné',q:'Jak se jmenuje česká série her o partě vojáků z druhé světové války od Bohemia Interactive?',a:'Operace Flashpoint / Arma',d:['Mafia','Vietcong']},
+  {cat:'Hry: obecné',q:'Který herní vývojář stojí za sérií The Witcher?',a:'CD Projekt Red',d:['Bethesda','BioWare']},
+  {cat:'Hry: obecné',q:'Jak se nazývá česká herní studio stojící za sérií Mafia?',a:'Illusion Softworks (dnes 2K Czech / Hangar 13)',d:['Warhorse Studios','Bohemia Interactive']},
+
+  // Zvířata: divoká příroda
+  {cat:'Zvířata: divoká příroda',q:'Který savec je největší na světě?',a:'Plejtvák obrovský (velryba)',d:['Slon africký','Žralok velrybí']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se nazývá nejrychlejší pozemský savec na světě?',a:'Gepard',d:['Antilopa','Lev']},
+  {cat:'Zvířata: divoká příroda',q:'Který pták neumí létat, ale je vynikající plavec žijící v Antarktidě?',a:'Tučňák',d:['Pštros','Kivi']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se nazývá největší žijící plaz na světě?',a:'Krokodýl mořský',d:['Varan komodský','Anakonda velká']},
+  {cat:'Zvířata: divoká příroda',q:'Který savec je jediný schopný skutečného letu?',a:'Netopýr',d:['Poletucha','Veverka']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se nazývá největší kočkovitá šelma žijící v Asii?',a:'Tygr',d:['Lev','Levhart']},
+  {cat:'Zvířata: divoká příroda',q:'Který živočich je považován za nejjedovatějšího hada na světě podle síly jedu?',a:'Tajpan pustinný',d:['Kobra královská','Chřestýš']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se nazývá proces, kdy hmyz jako motýl prochází proměnou z housenky?',a:'Metamorfóza',d:['Mitóza','Fotosyntéza']},
+  {cat:'Zvířata: divoká příroda',q:'Který savec žijící v Austrálii nosí mláďata ve váčku na břiše?',a:'Klokan',d:['Koala','Vombat']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se jmenuje největší žijící pták na světě, který neumí létat?',a:'Pštros dvouprstý',d:['Emu','Kasuár']},
+  {cat:'Zvířata: divoká příroda',q:'Který savec je znám tím, že mění barvu srsti podle ročního období pro maskování (např. v Arktidě)?',a:'Zajíc bělák',d:['Liška polární','Sob polární']},
+  {cat:'Zvířata: divoká příroda',q:'Jak se nazývá největší ryba na světě?',a:'Žralok obrovský (velrybí)',d:['Manta obrovská','Mečoun obecný']},
+
+  // Technologie a internet
+  {cat:'Technologie a internet',q:'Který protokol se používá pro bezpečný přenos dat na webu (šifrovaná verze HTTP)?',a:'HTTPS',d:['FTP','SMTP']},
+  {cat:'Technologie a internet',q:'Jak se jmenuje sociální síť založená Markem Zuckerbergem v roce 2004?',a:'Facebook',d:['Twitter','MySpace']},
+  {cat:'Technologie a internet',q:'Co znamená zkratka Wi-Fi?',a:'Wireless Fidelity',d:['Wide Field','Wireless Field']},
+  {cat:'Technologie a internet',q:'Který vyhledávač je celosvětově nejpoužívanější?',a:'Google',d:['Bing','Yahoo']},
+  {cat:'Technologie a internet',q:'Jak se nazývá škodlivý software, který požaduje výkupné za odemčení dat?',a:'Ransomware',d:['Spyware','Adware']},
+  {cat:'Technologie a internet',q:'Co znamená zkratka VPN?',a:'Virtual Private Network',d:['Verified Public Node','Virtual Protocol Number']},
+  {cat:'Technologie a internet',q:'Který systém domén překládá doménová jména na IP adresy?',a:'DNS',d:['HTTP','SSL']},
+  {cat:'Technologie a internet',q:'Jak se jmenuje operační systém vyvíjený firmou Apple pro počítače Mac?',a:'macOS',d:['iOS','Windows']},
+  {cat:'Technologie a internet',q:'Co znamená zkratka AI v kontextu moderní technologie?',a:'Umělá inteligence (Artificial Intelligence)',d:['Automatická integrace','Aktivní interakce']},
+  {cat:'Technologie a internet',q:'Jak se nazývá úložiště dat přístupné přes internet, nikoli lokálně na disku?',a:'Cloud',d:['Server','Disk']},
+  {cat:'Technologie a internet',q:'Který způsob ověření přidává k heslu ještě druhý krok, např. kód z telefonu?',a:'Dvoufaktorové ověření (2FA)',d:['Jednorázové heslo','Biometrie']},
+  {cat:'Technologie a internet',q:'Jak se nazývá jednotka přenosové rychlosti internetu?',a:'Mbps (megabity za sekundu)',d:['MB (megabajt)','GHz']},
 ];
 
 let questions=[], qSeq=1, enabledCats=new Set(), editingId=null;
@@ -555,7 +765,7 @@ function startRoom(){
     const pool=poolFor(enabledCats).map(({id,cat,q,a,d})=>({id,cat,q,a,d}));
     const cells={};for(let r=0;r<rows;r++)for(let i=0;i<=r;i++)cells[r+'_'+i]=-1;
     updates['pool']=pool;
-    updates['state']={rows,nplayers:arr.length,current:0,phase:'idle',q:null,reveal:null,winnerIdx:-1,tie:false,winCells:[],cells};
+    updates['state']={rows,nplayers:arr.length,current:0,phase:'idle',q:null,reveal:null,winnerIdx:-1,tie:false,winCells:[],cells,usedIds:[]};
     updates['meta/status']='playing';updates['meta/rows']=rows;
     roomRef.update(updates);
   });
@@ -653,14 +863,20 @@ function renderOModal(s){
 /* akce (transakce) */
 function stateRef(){return roomRef.child('state');}
 function onlinePick(key){
-  const q=onlinePool[Math.random()*onlinePool.length|0];if(!q)return;
-  const opts=shuffle([q.a,...q.d]);
+  if(!onlinePool.length)return;
   stateRef().transaction(s=>{
     if(!s||s.phase!=='idle'||s.current!==myIdx||s.winnerIdx>=0)return;
     const v=s.cells[key];if(v!==-1&&v!==-2)return;
+    const used=new Set(s.usedIds||[]);
+    let avail=onlinePool.filter(q=>!used.has(q.id));
+    if(!avail.length){avail=onlinePool.slice();used.clear();}
+    const q=avail[Math.random()*avail.length|0];
+    const opts=shuffle([q.a,...q.d]);
     const mode=v===-2?'open':'choice';
     s.q={qid:q.id,cell:key,cat:q.cat,prompt:q.q,mode,options:mode==='choice'?opts:null,byIdx:myIdx};
-    s.phase='question';s.reveal=null;return s;
+    s.phase='question';s.reveal=null;
+    used.add(q.id);s.usedIds=[...used];
+    return s;
   });
 }
 function resolveInState(s,ok){
