@@ -815,15 +815,24 @@ function escapeHtml(s){return (s||'').toString().replace(/[&<>"]/g,c=>({'&':'&am
 function hexPts(cx,cy,s){const A=[-90,-30,30,90,150,210];return A.map(a=>{const r=a*Math.PI/180;return `${(cx+s*Math.cos(r)).toFixed(2)},${(cy+s*Math.sin(r)).toFixed(2)}`;}).join(' ');}
 function extractFlag(text){
   const m=text.match(/(?:\uD83C[\uDDE6-\uDDFF]){2}/);
-  if(!m)return{text,flag:null};
-  return{text:text.replace(m[0],'').trim(),flag:m[0]};
+  if(!m)return{text,iso2:null};
+  const seq=m[0];
+  let iso2='';
+  for(let i=0;i<seq.length;i+=2)iso2+=String.fromCharCode(65+(seq.charCodeAt(i+1)-0xDDE6));
+  return{text:text.replace(seq,'').trim(),iso2};
 }
 function renderQuestionText(rawText){
-  const {text,flag}=extractFlag(rawText);
+  const {text,iso2}=extractFlag(rawText);
   $('#qtext').textContent=text;
   const wrap=$('#qFlagWrap'),slot=$('#qFlag');
-  if(flag){slot.textContent=flag;wrap.classList.remove('hidden');if(window.twemoji)twemoji.parse(slot,{folder:'svg',ext:'.svg'});}
-  else{wrap.classList.add('hidden');slot.textContent='';}
+  if(iso2){
+    slot.innerHTML='';
+    const img=document.createElement('img');
+    img.src='https://flagcdn.com/w320/'+iso2.toLowerCase()+'.png';
+    img.alt=iso2;img.className='flagImg';
+    slot.appendChild(img);
+    wrap.classList.remove('hidden');
+  }else{wrap.classList.add('hidden');slot.innerHTML='';}
 }
 
 const S=34,W=Math.sqrt(3)*S,ROWH=1.5*S,HS=S*0.82;

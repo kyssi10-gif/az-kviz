@@ -168,9 +168,9 @@
   .qplayer{margin-left:auto;font-weight:700;display:flex;align-items:center;gap:8px}
   .qplayer .dot{width:12px;height:12px;border-radius:50%}
   .qtext{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.6vw,24px);line-height:1.3;margin:6px 0 18px}
-  .qtext img.emoji{height:1.15em;width:auto;vertical-align:-0.18em;margin:0 .06em}
   .qFlagWrap{display:flex;justify-content:center;margin:4px 0 20px}
-  .qFlagWrap img.emoji{height:150px;width:auto;max-width:100%;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+  .qFlagWrap img.flagImg{display:block;height:170px;width:auto;max-width:100%;border-radius:4px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.18),0 10px 26px rgba(0,0,0,.4)}
   .opts{display:flex;flex-direction:column;gap:10px}
   .opt{text-align:left;background:var(--surface2-solid);border:1px solid var(--line);color:var(--text);padding:14px 16px;border-radius:12px;font-size:16px;cursor:pointer;transition:background .12s,border-color .12s,transform .06s}
   .opt:hover:not(:disabled){background:#2a3350;border-color:var(--line-strong)}
