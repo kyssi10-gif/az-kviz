@@ -813,6 +813,18 @@ function norm(s){return (s||'').toString().toLowerCase().trim().normalize('NFD')
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
 function escapeHtml(s){return (s||'').toString().replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function hexPts(cx,cy,s){const A=[-90,-30,30,90,150,210];return A.map(a=>{const r=a*Math.PI/180;return `${(cx+s*Math.cos(r)).toFixed(2)},${(cy+s*Math.sin(r)).toFixed(2)}`;}).join(' ');}
+function extractFlag(text){
+  const m=text.match(/(?:\uD83C[\uDDE6-\uDDFF]){2}/);
+  if(!m)return{text,flag:null};
+  return{text:text.replace(m[0],'').trim(),flag:m[0]};
+}
+function renderQuestionText(rawText){
+  const {text,flag}=extractFlag(rawText);
+  $('#qtext').textContent=text;
+  const wrap=$('#qFlagWrap'),slot=$('#qFlag');
+  if(flag){slot.textContent=flag;wrap.classList.remove('hidden');if(window.twemoji)twemoji.parse(slot,{folder:'svg',ext:'.svg'});}
+  else{wrap.classList.add('hidden');slot.textContent='';}
+}
 
 const S=34,W=Math.sqrt(3)*S,ROWH=1.5*S,HS=S*0.82;
 function computeVB(rows){
@@ -961,8 +973,7 @@ function askQuestion(cell){
   const q=pickQuestion(),mode=cell.state==='black'?'open':'choice',p=G.players[G.current];
   G.q={cell,q,mode,answered:false};
   $('#mCat').textContent=q.cat;$('#mMode').textContent=mode==='choice'?'Výběr ze 3':'Dobývání — bez nápovědy';
-  $('#mDot').style.background=p.color;$('#mPlayer').textContent=p.name;$('#qtext').textContent=q.q;
-  if(window.twemoji)twemoji.parse($('#qtext'),{folder:'svg',ext:'.svg'});
+  $('#mDot').style.background=p.color;$('#mPlayer').textContent=p.name;renderQuestionText(q.q);
   $('#mVerdict').classList.add('hidden');$('#mNext').classList.add('hidden');$('#mJudge').innerHTML='';$('#mWait').classList.add('hidden');
   const opts=$('#mOpts'),openBox=$('#mOpenBox');opts.innerHTML='';openBox.classList.add('hidden');opts.classList.add('hidden');
   if(mode==='choice'){opts.classList.remove('hidden');shuffle([q.a,...q.d]).forEach(txt=>{const b=document.createElement('button');b.className='opt';b.textContent=txt;b.type='button';b.onclick=()=>answerChoice(b,txt);opts.appendChild(b);});}
@@ -1018,19 +1029,30 @@ function ensureFirebase(){
 let authReadyPromise=null;
 function ensureAuth(){
   if(!authReadyPromise){
+    console.log('[AZ-kvíz] Zahajuji anonymní přihlášení k Firebase…');
     authReadyPromise=new Promise((resolve,reject)=>{
-      firebase.auth().onAuthStateChanged(u=>{if(u)resolve(u);});
-      firebase.auth().signInAnonymously().catch(e=>{console.error(e);reject(e);});
+      const timeout=setTimeout(()=>{console.error('[AZ-kvíz] Přihlášení nedoběhlo do 8 s (timeout).');reject(new Error('timeout — přihlášení k Firebase nedoběhlo do 8 sekund'));},8000);
+      firebase.auth().onAuthStateChanged(u=>{
+        if(u){console.log('[AZ-kvíz] Přihlášen jako anonymní uživatel:',u.uid);clearTimeout(timeout);resolve(u);}
+      });
+      firebase.auth().signInAnonymously().catch(e=>{console.error('[AZ-kvíz] signInAnonymously selhalo:',e);clearTimeout(timeout);reject(e);});
     });
   }
   return authReadyPromise;
 }
+function showOnlineErr(msg){
+  console.error('[AZ-kvíz]',msg);
+  const box=$('#onlineErr'),txt=$('#onlineErrText');
+  if(box&&txt){txt.textContent=msg;box.classList.remove('hidden');}
+  else alert(msg);
+}
+function clearOnlineErr(){const box=$('#onlineErr');if(box)box.classList.add('hidden');}
 function getCid(){let id;try{id=localStorage.getItem('azkviz_cid');}catch(e){}if(!id){id='c'+Math.random().toString(36).slice(2,9);try{localStorage.setItem('azkviz_cid',id);}catch(e){}}return id;}
 function genCode(){const A='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<4;i++)s+=A[Math.random()*A.length|0];return s;}
 function TS(){return firebase.database.ServerValue.TIMESTAMP;}
 
 function openOnline(){
-  MODE='online';show('online');
+  MODE='online';show('online');clearOnlineErr();
   if(!ensureFirebase()){$('#fbWarn').classList.remove('hidden');$('#oHome').classList.add('hidden');$('#oJoin').classList.add('hidden');$('#oLobby').classList.add('hidden');return;}
   $('#fbWarn').classList.add('hidden');
   const params=new URLSearchParams(location.search);const rc=(params.get('room')||'').toUpperCase();
@@ -1043,6 +1065,7 @@ function detachAll(){listeners.forEach(l=>l.ref.off(l.ev,l.cb));listeners=[];}
 
 function createRoom(){
   if(!ensureFirebase())return;
+  clearOnlineErr();
   const name=$('#oName').value.trim()||'Hráč',color=$('#oColor').value,rows=+$('#oRows').value;
   const pool=poolFor(enabledCats);
   if(!pool.length){alert('Vyber aspoň jednu kategorii s otázkami.');return;}
@@ -1055,11 +1078,12 @@ function createRoom(){
         roomCode=code;isCreator=true;
         enterRoom(code);
         addSelf(name,color);
-      }).catch(e=>alert('Nepodařilo se vytvořit místnost: '+e));
-  }).catch(()=>alert('Nepodařilo se přihlásit k Firebase (anonymně). Zkontroluj, že máš v konzoli povolené Anonymous přihlášení.'));
+      }).catch(e=>showOnlineErr('Nepodařilo se vytvořit místnost — '+(e&&e.code?e.code+': ':'')+(e&&e.message?e.message:e)));
+  }).catch(e=>showOnlineErr('Nepodařilo se anonymně přihlásit k Firebase — '+(e&&e.code?e.code+': ':'')+(e&&e.message?e.message:e)+'. Zkontroluj v konzoli Authentication → Sign-in method, že je Anonymous opravdu Enabled, a že máš v Realtime Database → Rules publikovaná (ne jen vložená) pravidla.'));
 }
 function joinRoom(){
   if(!ensureFirebase())return;
+  clearOnlineErr();
   const name=$('#jName').value.trim()||'Hráč',color=$('#jColor').value,code=(roomCode||'').toUpperCase();
   if(!code){alert('Chybí kód místnosti.');return;}
   ensureAuth().then(()=>{
@@ -1069,8 +1093,8 @@ function joinRoom(){
       if(meta.status!=='lobby'){alert('Hra už běží — počkej na další zápas.');return;}
       isCreator=(meta.creator===myCid);
       enterRoom(code);addSelf(name,color);
-    });
-  }).catch(()=>alert('Nepodařilo se přihlásit k Firebase (anonymně). Zkontroluj, že máš v konzoli povolené Anonymous přihlášení.'));
+    }).catch(e=>showOnlineErr('Nepodařilo se připojit — '+(e&&e.code?e.code+': ':'')+(e&&e.message?e.message:e)));
+  }).catch(e=>showOnlineErr('Nepodařilo se anonymně přihlásit k Firebase — '+(e&&e.code?e.code+': ':'')+(e&&e.message?e.message:e)+'. Zkontroluj v konzoli Authentication → Sign-in method, že je Anonymous opravdu Enabled, a že máš v Realtime Database → Rules publikovaná (ne jen vložená) pravidla.'));
 }
 function addSelf(name,color){
   const ref=db.ref('rooms/'+roomCode);
@@ -1182,8 +1206,7 @@ function renderOTurn(s){
 function renderOModal(s){
   const q=s.q;if(!q)return;const mine=s.current===myIdx;
   $('#mCat').textContent=q.cat;$('#mMode').textContent=q.mode==='choice'?'Výběr ze 3':'Dobývání — bez nápovědy';
-  $('#mDot').style.background=pcolor(s.current);$('#mPlayer').textContent=pname(s.current);$('#qtext').textContent=q.prompt;
-  if(window.twemoji)twemoji.parse($('#qtext'),{folder:'svg',ext:'.svg'});
+  $('#mDot').style.background=pcolor(s.current);$('#mPlayer').textContent=pname(s.current);renderQuestionText(q.prompt);
   $('#mTimer').classList.add('hidden');
   const opts=$('#mOpts'),openBox=$('#mOpenBox'),wait=$('#mWait'),verdict=$('#mVerdict'),next=$('#mNext'),judge=$('#mJudge');
   opts.innerHTML='';opts.classList.add('hidden');openBox.classList.add('hidden');wait.classList.add('hidden');verdict.classList.add('hidden','ok','no');next.classList.add('hidden');judge.innerHTML='';
