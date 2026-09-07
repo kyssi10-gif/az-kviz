@@ -108,17 +108,19 @@
           <li>Vlevo <b>Build → Realtime Database → Create Database</b>, vyber region (např. <i>europe-west1</i>) a spusť ve <b>test mode</b>.</li>
           <li><b>Project settings → Your apps → Web (&lt;/&gt;)</b> → zaregistruj appku a zkopíruj <code class="k">firebaseConfig</code>.</li>
           <li>V tomto souboru nahoře ve skriptu přepiš <code class="k">FIREBASE_CONFIG</code> zkopírovanými hodnotami (hlavně <code class="k">databaseURL</code>).</li>
+          <li>Vlevo <b>Build → Authentication → Get started</b>, v seznamu poskytovatelů klikni na <b>Anonymous</b> a zapni ho (Enable → Save). Hráči nic nevyplňují, děje se to na pozadí.</li>
           <li>V <b>Realtime Database → Rules</b> vlož pravidla, která máš níže, a publikuj.</li>
           <li>Nahraj soubor na GitHub Pages a rozešli přátelům odkaz.</li>
         </ol>
-        <p class="hint" style="margin-top:12px">Pravidla (jednoduchá, otevřené místnosti — pro partu stačí):</p>
+        <p class="hint" style="margin-top:12px">Pravidla (místnosti čitelné/zapisovatelné jen pro přihlášené klienty appky — ne pro kohokoliv, kdo jen zná adresu databáze):</p>
         <textarea readonly rows="9" style="margin-top:6px">{
   "rules": {
     "rooms": {
-      "$code": { ".read": true, ".write": true }
+      "$code": { ".read": "auth != null", ".write": "auth != null" }
     }
   }
 }</textarea>
+        <p class="hint" style="margin-top:10px">Pozor: toto pravidlo omezuje přístup na klienty, kteří se anonymně přihlásili přes tuhle appku — zabrání to náhodným botům a přímým voláním API zvenčí. Nejde o účet ani heslo hráčů a nerozlišuje to jednotlivé lidi od sebe.</p>
       </details>
     </div>
 
@@ -334,6 +336,8 @@
 <!-- Firebase (compat) -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 <script src="script.js"></script>
 </body>
 </html>

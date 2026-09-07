@@ -962,6 +962,7 @@ function askQuestion(cell){
   G.q={cell,q,mode,answered:false};
   $('#mCat').textContent=q.cat;$('#mMode').textContent=mode==='choice'?'Výběr ze 3':'Dobývání — bez nápovědy';
   $('#mDot').style.background=p.color;$('#mPlayer').textContent=p.name;$('#qtext').textContent=q.q;
+  if(window.twemoji)twemoji.parse($('#qtext'),{folder:'svg',ext:'.svg'});
   $('#mVerdict').classList.add('hidden');$('#mNext').classList.add('hidden');$('#mJudge').innerHTML='';$('#mWait').classList.add('hidden');
   const opts=$('#mOpts'),openBox=$('#mOpenBox');opts.innerHTML='';openBox.classList.add('hidden');opts.classList.add('hidden');
   if(mode==='choice'){opts.classList.remove('hidden');shuffle([q.a,...q.d]).forEach(txt=>{const b=document.createElement('button');b.className='opt';b.textContent=txt;b.type='button';b.onclick=()=>answerChoice(b,txt);opts.appendChild(b);});}
@@ -1014,6 +1015,16 @@ function ensureFirebase(){
   if(String(FIREBASE_CONFIG.apiKey||'').includes('PASTE')||!FIREBASE_CONFIG.databaseURL||String(FIREBASE_CONFIG.databaseURL).includes('PASTE'))return false;
   try{firebase.initializeApp(FIREBASE_CONFIG);db=firebase.database();fbReady=true;return true;}catch(e){console.error(e);return false;}
 }
+let authReadyPromise=null;
+function ensureAuth(){
+  if(!authReadyPromise){
+    authReadyPromise=new Promise((resolve,reject)=>{
+      firebase.auth().onAuthStateChanged(u=>{if(u)resolve(u);});
+      firebase.auth().signInAnonymously().catch(e=>{console.error(e);reject(e);});
+    });
+  }
+  return authReadyPromise;
+}
 function getCid(){let id;try{id=localStorage.getItem('azkviz_cid');}catch(e){}if(!id){id='c'+Math.random().toString(36).slice(2,9);try{localStorage.setItem('azkviz_cid',id);}catch(e){}}return id;}
 function genCode(){const A='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<4;i++)s+=A[Math.random()*A.length|0];return s;}
 function TS(){return firebase.database.ServerValue.TIMESTAMP;}
@@ -1035,27 +1046,31 @@ function createRoom(){
   const name=$('#oName').value.trim()||'Hráč',color=$('#oColor').value,rows=+$('#oRows').value;
   const pool=poolFor(enabledCats);
   if(!pool.length){alert('Vyber aspoň jednu kategorii s otázkami.');return;}
-  const code=genCode();
-  const ref=db.ref('rooms/'+code);
-  ref.child('meta').transaction(m=>m?undefined:{status:'lobby',creator:myCid,rows,createdAt:TS(),pcount:0})
-    .then(res=>{
-      if(!res.committed){createRoom();return;}   // kolize kódu → zkus znovu
-      roomCode=code;isCreator=true;
-      enterRoom(code);
-      addSelf(name,color);
-    }).catch(e=>alert('Nepodařilo se vytvořit místnost: '+e));
+  ensureAuth().then(()=>{
+    const code=genCode();
+    const ref=db.ref('rooms/'+code);
+    ref.child('meta').transaction(m=>m?undefined:{status:'lobby',creator:myCid,rows,createdAt:TS(),pcount:0})
+      .then(res=>{
+        if(!res.committed){createRoom();return;}   // kolize kódu → zkus znovu
+        roomCode=code;isCreator=true;
+        enterRoom(code);
+        addSelf(name,color);
+      }).catch(e=>alert('Nepodařilo se vytvořit místnost: '+e));
+  }).catch(()=>alert('Nepodařilo se přihlásit k Firebase (anonymně). Zkontroluj, že máš v konzoli povolené Anonymous přihlášení.'));
 }
 function joinRoom(){
   if(!ensureFirebase())return;
   const name=$('#jName').value.trim()||'Hráč',color=$('#jColor').value,code=(roomCode||'').toUpperCase();
   if(!code){alert('Chybí kód místnosti.');return;}
-  db.ref('rooms/'+code+'/meta').once('value').then(s=>{
-    const meta=s.val();
-    if(!meta){alert('Místnost '+code+' neexistuje.');return;}
-    if(meta.status!=='lobby'){alert('Hra už běží — počkej na další zápas.');return;}
-    isCreator=(meta.creator===myCid);
-    enterRoom(code);addSelf(name,color);
-  });
+  ensureAuth().then(()=>{
+    db.ref('rooms/'+code+'/meta').once('value').then(s=>{
+      const meta=s.val();
+      if(!meta){alert('Místnost '+code+' neexistuje.');return;}
+      if(meta.status!=='lobby'){alert('Hra už běží — počkej na další zápas.');return;}
+      isCreator=(meta.creator===myCid);
+      enterRoom(code);addSelf(name,color);
+    });
+  }).catch(()=>alert('Nepodařilo se přihlásit k Firebase (anonymně). Zkontroluj, že máš v konzoli povolené Anonymous přihlášení.'));
 }
 function addSelf(name,color){
   const ref=db.ref('rooms/'+roomCode);
@@ -1168,6 +1183,7 @@ function renderOModal(s){
   const q=s.q;if(!q)return;const mine=s.current===myIdx;
   $('#mCat').textContent=q.cat;$('#mMode').textContent=q.mode==='choice'?'Výběr ze 3':'Dobývání — bez nápovědy';
   $('#mDot').style.background=pcolor(s.current);$('#mPlayer').textContent=pname(s.current);$('#qtext').textContent=q.prompt;
+  if(window.twemoji)twemoji.parse($('#qtext'),{folder:'svg',ext:'.svg'});
   $('#mTimer').classList.add('hidden');
   const opts=$('#mOpts'),openBox=$('#mOpenBox'),wait=$('#mWait'),verdict=$('#mVerdict'),next=$('#mNext'),judge=$('#mJudge');
   opts.innerHTML='';opts.classList.add('hidden');openBox.classList.add('hidden');wait.classList.add('hidden');verdict.classList.add('hidden','ok','no');next.classList.add('hidden');judge.innerHTML='';
